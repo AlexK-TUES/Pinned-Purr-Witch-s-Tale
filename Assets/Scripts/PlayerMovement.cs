@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private Sprite upS, downS, horizS;
+    public GameObject myselfLmao;
     public float moveSpeed;
     private float speedX, speedY;
     public Rigidbody2D rb;
-    public SpriteRenderer spriteRenderer;
+    private GameObject[] children = new GameObject[3];
+    private bool isWalking = false;
 
     // Start is called before the first frame update
     void Start()
-    {
-
+    {  
+        children[0] = GameObject.Find("PlayerFront");
+        children[1] = GameObject.Find("PlayerBack");
+        children[2] = GameObject.Find("PlayerSide");
+        children[1].SetActive(false);
+        children[2].SetActive(false);
     }
 
     // Update is called once per frame
@@ -24,18 +29,31 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = new Vector2 (speedX, speedY);
 
-        if(rb.velocity.y != 0)
-        {
+        if(rb.velocity.y != 0){
             // Set to vertical sprite
-            if (rb.velocity.y > 0) { spriteRenderer.sprite = upS; }
-            else { spriteRenderer.sprite = downS; }
+            if (rb.velocity.y > 0) { children[1].SetActive(true); children[0].SetActive(false); children[2].SetActive(false); }
+            else { children[0].SetActive(true); children[1].SetActive(false); children[2].SetActive(false); }
         }
-        else if(rb.velocity.x != 0)
-        {
+        else if(rb.velocity.x != 0){
             //Set to horizontal sprite
-            spriteRenderer.sprite = horizS;
-            if (rb.velocity.x < 0) { spriteRenderer.flipX = true; }
-            else { spriteRenderer.flipX = false; }
+            children[2].SetActive(true);
+            children[0].SetActive(false);
+            children[1].SetActive(false);
+            if (rb.velocity.x < 0) { children[2].transform.localScale = new Vector3(-0.5f,0.5f,0.5f); }
+            else { children[2].transform.localScale = new Vector3(0.5f,0.5f,0.5f); }
         }
+
+        if((speedX>0.01 || speedY>0.01 || speedX<-0.01 || speedY<-0.01) && !isWalking){
+            foreach(GameObject child in children){
+                child.GetComponent<Animator>().SetBool("isWalking", true);
+            }
+            isWalking = true;
+        }else if(!(speedX>0.01 || speedY>0.01 || speedX<-0.01 || speedY<-0.01) && isWalking){
+            foreach(GameObject child in children){
+                child.GetComponent<Animator>().SetBool("isWalking", false);
+            }
+            isWalking = false;
+        }
+
     }
 }
