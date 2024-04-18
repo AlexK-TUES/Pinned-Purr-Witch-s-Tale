@@ -39,16 +39,16 @@ public class PlayerMovement : MonoBehaviour
             children[2].SetActive(true);
             children[0].SetActive(false);
             children[1].SetActive(false);
-            if (rb.velocity.x < 0) { children[2].transform.localScale = new Vector3(-0.5f,0.5f,0.5f); }
-            else { children[2].transform.localScale = new Vector3(0.5f,0.5f,0.5f); }
+            if (rb.velocity.x < 0) { children[2].transform.localScale = new Vector3(-1.0f,1.0f,1.0f); }
+            else { children[2].transform.localScale = new Vector3(1.0f,1.0f,1.0f); }
         }
 
-        if((speedX>0.01 || speedY>0.01 || speedX<-0.01 || speedY<-0.01) && !isWalking){
+        if((speedX>0.01 || speedY>0.01 || speedX<-0.01 || speedY<-0.01)){
             foreach(GameObject child in children){
                 child.GetComponent<Animator>().SetBool("isWalking", true);
             }
             isWalking = true;
-        }else if(!(speedX>0.01 || speedY>0.01 || speedX<-0.01 || speedY<-0.01) && isWalking){
+        }else if(!(speedX>0.01 || speedY>0.01 || speedX<-0.01 || speedY<-0.01)){
             foreach(GameObject child in children){
                 child.GetComponent<Animator>().SetBool("isWalking", false);
             }
