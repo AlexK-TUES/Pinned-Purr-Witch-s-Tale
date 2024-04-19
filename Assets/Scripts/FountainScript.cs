@@ -21,6 +21,7 @@ public class FountainScript : MonoBehaviour
             inv.Add(new_moon_jar);
             new_moon_jar.SetActive(false);
             inv.Remove(empty_jar);
+            foreach (GameObject go in inv) { Debug.Log(go); }
         }
     }
 }
