@@ -5,14 +5,13 @@ using UnityEngine;
 
 public class FountainScript : MonoBehaviour
 {
-    [SerializeField] private GameObject inv_obj;
     [SerializeField] private GameObject empty_jar;
     [SerializeField] private GameObject moon_jar;
     private List<GameObject> inv;
 
     void Start()
     {
-        inv = inv_obj.GetComponent<Inventory>().inv;
+        inv = Inventory.inv;
     }
 
     void OnTriggerEnter2D(Collider2D other)
