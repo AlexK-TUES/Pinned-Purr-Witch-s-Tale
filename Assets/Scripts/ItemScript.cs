@@ -15,7 +15,7 @@ public class ItemScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(!inv.Contains(gameObject))
+        if(!inv.Contains(gameObject) || !GetComponent<SpriteRenderer>().enabled)
         {
             inv.Add(gameObject);
         }
