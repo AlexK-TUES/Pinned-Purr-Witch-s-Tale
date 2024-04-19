@@ -11,6 +11,8 @@ public class ItemScript : MonoBehaviour
         {
             Inventory.inv.Add(gameObject);
         }
+        foreach (var item in Inventory.inv)
+            Debug.Log(item.ToString());
 
         gameObject.SetActive(false);
     }

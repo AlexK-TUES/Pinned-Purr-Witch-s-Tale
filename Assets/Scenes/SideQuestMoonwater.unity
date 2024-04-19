@@ -521,7 +521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc02125b61c54385b2773e2276557ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inv_obj: {fileID: 1582648649}
   empty_jar: {fileID: 2132592147}
   moon_jar: {fileID: 2671863883904355787, guid: 80e7ca454b21d4efc9dd030b271f74f5, type: 3}
 --- !u!1 &724949881
@@ -9024,7 +9023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2671863883904355784, guid: 25683c139bc334c6ea7f6b4f46d363ff, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 2671863883904355784, guid: 25683c139bc334c6ea7f6b4f46d363ff, type: 3}
       propertyPath: m_LocalRotation.w

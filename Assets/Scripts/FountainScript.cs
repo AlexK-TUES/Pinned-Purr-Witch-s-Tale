@@ -20,7 +20,6 @@ public class FountainScript : MonoBehaviour
         if(inv.Contains(empty_jar)){
             Debug.Log("Here2");
             GameObject new_moon_jar = (GameObject)GameObject.Instantiate(moon_jar, new Vector3(empty_jar.transform.position.x,empty_jar.transform.position.y,empty_jar.transform.position.z), Quaternion.identity);
-            new_moon_jar.GetComponent<SpriteRenderer>().enabled = false;
             Debug.Log("Here3");
             inv.Add(new_moon_jar);
             inv.Remove(empty_jar);
