@@ -16,12 +16,10 @@ public class FountainScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Here1");
         if(inv.Contains(empty_jar)){
-            Debug.Log("Here2");
             GameObject new_moon_jar = (GameObject)GameObject.Instantiate(moon_jar, new Vector3(empty_jar.transform.position.x,empty_jar.transform.position.y,empty_jar.transform.position.z), Quaternion.identity);
-            Debug.Log("Here3");
             inv.Add(new_moon_jar);
+            new_moon_jar.SetActive(false);
             inv.Remove(empty_jar);
         }
     }
