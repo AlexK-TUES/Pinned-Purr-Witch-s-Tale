@@ -5,7 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/MainIsland.unity
+    guid: 1b13a95421310445e8d40e1a67636e18
+  - enabled: 1
+    path: Assets/Scenes/Map.unity
+    guid: 782230f448feffa49b773f01e46c9fe5
+  - enabled: 1
+    path: Assets/Scenes/SideQuestFlower.unity
+    guid: 2315ab823b0d241329a50dce0a0c31f0
+  - enabled: 1
+    path: Assets/Scenes/SideQuestJar.unity
+    guid: 7ffa83fa8a0774ac4a78366da4dae9be
+  - enabled: 1
+    path: Assets/Scenes/SideQuestMoonwater.unity
+    guid: 75957e5c9aa204718a2776e62b95ca19
   m_configObjects: {}
